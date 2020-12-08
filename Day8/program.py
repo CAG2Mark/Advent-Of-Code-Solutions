@@ -6,11 +6,11 @@ N = 0
 def run(index):
     global acc
 
-    print(index)
-
     next_index = -1
 
-    visited[index] = visited[index]
+    if visited[index]:
+        return
+    visited[index] = 1
 
     ins = inss[index]
 
@@ -22,10 +22,6 @@ def run(index):
         next_index = index + val
 
     if next_index == -1: next_index = index + 1
-
-    if visited[next_index]:
-        return
-
     
     if index >= N: return
     run(next_index)
@@ -40,6 +36,6 @@ while True:
 
 visited = [0] * N
 
-print(acc)
-
 run(0)
+
+print(acc)
