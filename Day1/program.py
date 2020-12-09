@@ -14,3 +14,4 @@ while sum != 2020:
     if sum > 2020: j = j - 1
     if sum < 2020: i = i + 1
 print(nums[i] * nums[j])
+
