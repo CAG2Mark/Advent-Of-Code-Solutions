@@ -8,8 +8,8 @@ total = 0
 def dfs(cur, visited:list):
     global vtx, total
 
-    if memo[cur] != -1:
-        total += memo[cur]
+    if cache[cur] != -1:
+        total += cache[cur]
         return
   
     if not vtx[cur]:
@@ -36,7 +36,7 @@ vts.append(tg + 3)
 vts.sort()
 
 vtx = [0]*(tg + 4)
-memo = [-1]*(tg + 4)
+cache = [-1]*(tg + 4)
 
 cnt = len(vts) - 1
 
@@ -50,6 +50,6 @@ for i in range(cnt + 1):
     if vtx[cnt - i] == 0: continue
     total = 0
     dfs(cnt - i, list())
-    memo[cnt - i] = total
+    cache[cnt - i] = total
 
 print(total)
