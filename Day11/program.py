@@ -15,7 +15,6 @@ def check_seat(x, y):
         for y_ in range(lw_y, up_y):
             if x_ == x and y_ == y: continue
             cnt += seats[y_][x_] == '#'
-
     return cnt
 
 def do_round():
@@ -35,7 +34,6 @@ def cnt_occupied():
     for r in seats:
         total += r.count('#')
     return total
-
 cntr = 0
 while True:
     try:
