@@ -42,9 +42,9 @@ while True:
 
 indexes = {}
 
-stack = [*rules]
+keys = [*rules]
 
-for k in stack:
+for k in keys:
 
     val = rules[k]
 
