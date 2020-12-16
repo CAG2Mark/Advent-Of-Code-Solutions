@@ -20,7 +20,6 @@ while True:
 
 input()
 ticket = [int(x) for x in input().split(",")]
-
 input()
 input()
 
@@ -43,9 +42,9 @@ while True:
 
 indexes = {}
 
-keys = [*rules]
+stack = [*rules]
 
-for k in keys:
+for k in stack:
 
     val = rules[k]
 
