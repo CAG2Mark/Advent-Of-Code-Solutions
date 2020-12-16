@@ -1,6 +1,7 @@
 # valid ranges
 rules = {}
 
+# Input all the rules
 while True:
     try:
         ln = input()
@@ -18,13 +19,14 @@ while True:
     except EOFError:
         break
 
+# Input your ticket
 input()
 ticket = [int(x) for x in input().split(",")]
 input()
 input()
 
+# Eliminate invalid tickets
 valid = []
-
 while True:
     try:
         ln = input()
@@ -42,6 +44,7 @@ while True:
 
 indexes = {}
 
+# Get all tickets that are possible for each key
 keys = [*rules]
 
 for k in keys:
@@ -63,20 +66,22 @@ for k in keys:
 
     indexes[k] = i
 
-# combine
-
+# Count the number of possible fields each column (data position) could belong to.
 counts = {}
-for vs in indexes.values():
+for vs in indexes.values(): # Reminder: indexes.values stores the possible column for each key
     for v in vs:
         if v in counts.keys():
             counts[v] += 1
         else:
             counts[v] = 1
 
+# Sort the counts.
 counts_s = sorted(counts, key=counts.get)
 
 final = {}
 
+# The idea here is to prioritise the columns that can belong to the fewest possible fields,
+# then assign that to the field that has the least possible columns.
 for c in counts_s:
     indexes_s = sorted(indexes, key=len)
     matches = [f for f in indexes_s if c in indexes[f]]
