@@ -44,7 +44,7 @@ while True:
 
 indexes = {}
 
-# Get all tickets that are possible for each key
+# Get all columns that are possible for each field
 keys = [*rules]
 
 for k in keys:
