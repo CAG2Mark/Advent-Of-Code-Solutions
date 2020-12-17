@@ -22,7 +22,6 @@ def expand():
         for xs in s:
 
             for xy in xs:
-                print(xy)
                 xy.insert(0, '.')
                 xy.append('.')
 
@@ -88,7 +87,6 @@ while True:
         break
 
 cur3d = list()
-print(len)
 cur3d.append(gen_empty_2(len(initial)))
 cur3d.append(initial)
 cur3d.append(gen_empty_2(len(initial)))
