@@ -1,7 +1,7 @@
 from typing import Text
 
 
-def eval_expr(expr:Text):
+def eval_expr(expr: Text):
     expr = "+ " + expr
     is_add = False
 
@@ -12,7 +12,8 @@ def eval_expr(expr:Text):
 
     for i, ch in enumerate(expr):
 
-        if ch == ' ': continue
+        if ch == ' ':
+            continue
 
         if ch == '(':
             pr_depth += 1
@@ -27,7 +28,8 @@ def eval_expr(expr:Text):
                 else:
                     cur_val *= val
 
-        if pr_depth > 0: continue
+        if pr_depth > 0:
+            continue
 
         if ch == '+':
             is_add = True
@@ -36,12 +38,13 @@ def eval_expr(expr:Text):
 
         if '0' <= ch <= '9':
             if is_add:
-                cur_val += int(ch);
+                cur_val += int(ch)
             else:
-                cur_val *= int(ch);
+                cur_val *= int(ch)
 
     return cur_val
-    
+
+
 sum = 0
 
 while True:

@@ -1,7 +1,7 @@
 from typing import Text
 
 
-def eval_expr(expr:Text):
+def eval_expr(expr: Text):
     expr = list(expr)
 
     pr_depth = 0
@@ -10,7 +10,8 @@ def eval_expr(expr:Text):
     while '(' in expr:
         for i, ch in enumerate(expr):
 
-            if ch == ' ': continue
+            if ch == ' ':
+                continue
 
             if ch == '(':
                 pr_depth += 1
@@ -28,7 +29,7 @@ def eval_expr(expr:Text):
         for i, ch in enumerate(expr):
 
             if ch == '+':
-        
+
                 l = i - 2
                 r = i + 2
                 lv = int(expr[i-2])
@@ -45,7 +46,8 @@ def eval_expr(expr:Text):
         prod *= int(i)
 
     return prod
-    
+
+
 sum = 0
 while True:
     try:

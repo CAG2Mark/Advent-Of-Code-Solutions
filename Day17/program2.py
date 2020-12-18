@@ -59,6 +59,7 @@ def modify(x, y, z, w):
     min_w = max(0, w - 1)
     max_w = min(len(slices), w + 2)
     
+    
     active_cnt = 0
     for x_ in range(min_x, max_x):
         for y_ in range(min_y, max_y):
@@ -107,6 +108,8 @@ for w in range(len(slices)):
         for y in range(len(slices[0][0])):
             for x in range(len(slices[0][0][0])):
                 cnt += slices[w][z][y][x] == '#'
+                
+                
 
 print(cnt)
 
