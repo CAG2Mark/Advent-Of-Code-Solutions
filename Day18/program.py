@@ -36,9 +36,9 @@ def eval_expr(expr:Text):
 
         if '0' <= ch <= '9':
             if is_add:
-                cur_val += ord(ch) - ord('0');
+                cur_val += int(ch);
             else:
-                cur_val *= (ord(ch) - ord('0'));
+                cur_val *= int(ch);
 
     return cur_val
     
@@ -46,7 +46,6 @@ sum = 0
 
 while True:
     try:
-        ln = list(input())
         sum += eval_expr(input())
 
     except EOFError:
