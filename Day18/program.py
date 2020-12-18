@@ -2,53 +2,51 @@ from typing import Text
 
 
 def eval_expr(expr:Text):
-    expr = list(expr)
+    expr = "+ " + expr
+    is_add = False
+
+    cur_val = 0
 
     pr_depth = 0
     pr_start = 0
 
-    while '(' in expr:
-        for i, ch in enumerate(expr):
+    for i, ch in enumerate(expr):
 
-            if ch == ' ': continue
+        if ch == ' ': continue
 
-            if ch == '(':
-                pr_depth += 1
-                if pr_depth == 1:
-                    pr_start = i + 1
-            if ch == ')':
-                pr_depth -= 1
-                if pr_depth == 0:
-                    val = eval_expr(expr[pr_start:i])
+        if ch == '(':
+            pr_depth += 1
+            if pr_depth == 1:
+                pr_start = i + 1
+        if ch == ')':
+            pr_depth -= 1
+            if pr_depth == 0:
+                val = eval_expr(expr[pr_start:i])
+                if is_add:
+                    cur_val += val
+                else:
+                    cur_val *= val
 
-                    expr = expr[:(pr_start - 1)] + [str(val)] + expr[(i + 1):]
-                    break
+        if pr_depth > 0: continue
 
-    while '+' in expr:
-        for i, ch in enumerate(expr):
+        if ch == '+':
+            is_add = True
+        elif ch == '*':
+            is_add = False
 
-            if ch == '+':
-        
-                l = i - 2
-                r = i + 2
-                lv = int(expr[i-2])
-                rv = int(expr[i+2])
+        if '0' <= ch <= '9':
+            if is_add:
+                cur_val += ord(ch) - ord('0');
+            else:
+                cur_val *= (ord(ch) - ord('0'));
 
-                expr = expr[:l] + [str(lv + rv)] + expr[r + 1:]
-
-                break
-
-    expr = list(''.join(expr).split(" * "))
-
-    prod = 1
-    for i in expr:
-        prod *= int(i)
-
-    return prod
+    return cur_val
     
 sum = 0
+
 while True:
     try:
+        ln = list(input())
         sum += eval_expr(input())
 
     except EOFError:
