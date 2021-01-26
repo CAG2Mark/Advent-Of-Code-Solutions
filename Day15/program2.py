@@ -16,3 +16,4 @@ for i in range(len(nums)):
         mem[nums[i-1]] = i-1
 
 print(nums[len(nums) - 1])
+
