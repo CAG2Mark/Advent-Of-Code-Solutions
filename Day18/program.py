@@ -14,12 +14,13 @@ def eval_expr(expr: Text):
 
         if ch == ' ':
             continue
+        else:
 
         if ch == '(':
             pr_depth += 1
             if pr_depth == 1:
                 pr_start = i + 1
-        if ch == ')':
+        elif ch == ')':
             pr_depth -= 1
             if pr_depth == 0:
                 val = eval_expr(expr[pr_start:i])
